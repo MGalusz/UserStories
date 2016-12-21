@@ -1,0 +1,183 @@
+<?php
+
+namespace UserStoriesBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Adress
+ *
+ * @ORM\Table(name="adress")
+ * @ORM\Entity(repositoryClass="UserStoriesBundle\Repository\AdressRepository")
+ */
+class Adress
+{
+        /**
+* @ORM\ManyToOne(targetEntity="Users", inversedBy="address")
+* @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+*/
+    private $user;
+    
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="city", type="string", length=255)
+     */
+    private $city;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="street", type="string", length=255)
+     */
+    private $street;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="numberHouse", type="integer")
+     */
+    private $numberHouse;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="nuberFlat", type="integer")
+     */
+    private $nuberFlat;
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set city
+     *
+     * @param string $city
+     * @return Adress
+     */
+    public function setCity($city)
+    {
+        $this->city = $city;
+
+        return $this;
+    }
+
+    /**
+     * Get city
+     *
+     * @return string 
+     */
+    public function getCity()
+    {
+        return $this->city;
+    }
+
+    /**
+     * Set street
+     *
+     * @param string $street
+     * @return Adress
+     */
+    public function setStreet($street)
+    {
+        $this->street = $street;
+
+        return $this;
+    }
+
+    /**
+     * Get street
+     *
+     * @return string 
+     */
+    public function getStreet()
+    {
+        return $this->street;
+    }
+
+    /**
+     * Set numberHouse
+     *
+     * @param integer $numberHouse
+     * @return Adress
+     */
+    public function setNumberHouse($numberHouse)
+    {
+        $this->numberHouse = $numberHouse;
+
+        return $this;
+    }
+
+    /**
+     * Get numberHouse
+     *
+     * @return integer 
+     */
+    public function getNumberHouse()
+    {
+        return $this->numberHouse;
+    }
+
+    /**
+     * Set nuberFlat
+     *
+     * @param integer $nuberFlat
+     * @return Adress
+     */
+    public function setNuberFlat($nuberFlat)
+    {
+        $this->nuberFlat = $nuberFlat;
+
+        return $this;
+    }
+
+    /**
+     * Get nuberFlat
+     *
+     * @return integer 
+     */
+    public function getNuberFlat()
+    {
+        return $this->nuberFlat;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \UserStoriesBundle\Entity\Users $user
+     * @return Adress
+     */
+    public function setUser(\UserStoriesBundle\Entity\Users $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \UserStoriesBundle\Entity\Users 
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+}
