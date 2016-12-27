@@ -27,21 +27,12 @@ class PersonController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $people = $em->getRepository('UseStoriesBundle:Person')->findAll();
-        
-        $address = [];
-        
-        
-        for($i = 0; $i<count($people);$i++){
-            $address[] = $em->getRepository('UseStoriesBundle:Address')->findOneByPerson($people[$i]->getId());
-        }
-       //$address = $em->getRepository('UseStoriesBundle:Address')->findOneByPerson($people);
-        
-        
+
         
 
         return $this->render('person/index.html.twig', array(
             'people' => $people,
-            'addresses' => $address,
+           
         ));
     }
 

@@ -26,15 +26,15 @@
                 <td>{{ person.surname }}</td>
                 <td>{{ person.description }}</td>
                 <td>{{ person.description }}</td>
-                 {{ dump(addresses)}}
-                   {% for address in addresses %}
-                       <td>{{ dump(address) }}</td>
-                 {#      {%if address.person == person.id %}
+                 
+                        {% for address in person.address %}
+                      
+                    
                 <td>{{ address.city }}</td>
                 <td>{{ address.street }}</td>
                 <td>{{ address.houseNumber }}</td>
                 <td>{{ address.flateNumber }}</td>
-                       {% endif %}#}
+                      
                      {% endfor %}
                 <td>
                     <ul>

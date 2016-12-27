@@ -5,15 +5,15 @@ namespace UseStoriesBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Email
+ * Phone
  *
- * @ORM\Table(name="email")
- * @ORM\Entity(repositoryClass="UseStoriesBundle\Repository\EmailRepository")
+ * @ORM\Table(name="phone")
+ * @ORM\Entity(repositoryClass="UseStoriesBundle\Repository\PhoneRepository")
  */
-class Email
+class Phone
 {
         /**
-* @ORM\ManyToOne(targetEntity="Person", inversedBy="email")
+* @ORM\ManyToOne(targetEntity="Person", inversedBy="phone")
 * @ORM\JoinColumn(name="person_id", referencedColumnName="id")
 */
 private $person;
@@ -29,9 +29,9 @@ private $person;
     /**
      * @var string
      *
-     * @ORM\Column(name="emailAdress", type="string", length=255)
+     * @ORM\Column(name="number", type="string", length=255)
      */
-    private $emailAdress;
+    private $number;
 
     /**
      * @var string
@@ -52,33 +52,33 @@ private $person;
     }
 
     /**
-     * Set emailAdress
+     * Set number
      *
-     * @param string $emailAdress
-     * @return Email
+     * @param string $number
+     * @return Phone
      */
-    public function setEmailAdress($emailAdress)
+    public function setNumber($number)
     {
-        $this->emailAdress = $emailAdress;
+        $this->number = $number;
 
         return $this;
     }
 
     /**
-     * Get emailAdress
+     * Get number
      *
      * @return string 
      */
-    public function getEmailAdress()
+    public function getNumber()
     {
-        return $this->emailAdress;
+        return $this->number;
     }
 
     /**
      * Set type
      *
      * @param string $type
-     * @return Email
+     * @return Phone
      */
     public function setType($type)
     {
@@ -95,5 +95,28 @@ private $person;
     public function getType()
     {
         return $this->type;
+    }
+
+    /**
+     * Set person
+     *
+     * @param \UseStoriesBundle\Entity\Person $person
+     * @return Phone
+     */
+    public function setPerson(\UseStoriesBundle\Entity\Person $person = null)
+    {
+        $this->person = $person;
+
+        return $this;
+    }
+
+    /**
+     * Get person
+     *
+     * @return \UseStoriesBundle\Entity\Person 
+     */
+    public function getPerson()
+    {
+        return $this->person;
     }
 }

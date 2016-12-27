@@ -13,6 +13,16 @@ use Doctrine\ORM\Mapping as ORM;
 class Person
 {
      /**
+     * @ORM\OneToMany(targetEntity="Phone", mappedBy="person",cascade={"remove"})
+     */
+        private $phone;
+        
+     /**
+     * @ORM\OneToMany(targetEntity="Email", mappedBy="person",cascade={"remove"})
+     */
+        private $email;
+        
+     /**
      * @ORM\OneToMany(targetEntity="Address", mappedBy="person",cascade={"remove"})
      */
         private $address;
@@ -172,4 +182,70 @@ class Person
         return $this->getName();
     }
         
+
+    /**
+     * Add phone
+     *
+     * @param \UseStoriesBundle\Entity\Phone $phone
+     * @return Person
+     */
+    public function addPhone(\UseStoriesBundle\Entity\Phone $phone)
+    {
+        $this->phone[] = $phone;
+
+        return $this;
+    }
+
+    /**
+     * Remove phone
+     *
+     * @param \UseStoriesBundle\Entity\Phone $phone
+     */
+    public function removePhone(\UseStoriesBundle\Entity\Phone $phone)
+    {
+        $this->phone->removeElement($phone);
+    }
+
+    /**
+     * Get phone
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getPhone()
+    {
+        return $this->phone;
+    }
+
+    /**
+     * Add email
+     *
+     * @param \UseStoriesBundle\Entity\Email $email
+     * @return Person
+     */
+    public function addEmail(\UseStoriesBundle\Entity\Email $email)
+    {
+        $this->email[] = $email;
+
+        return $this;
+    }
+
+    /**
+     * Remove email
+     *
+     * @param \UseStoriesBundle\Entity\Email $email
+     */
+    public function removeEmail(\UseStoriesBundle\Entity\Email $email)
+    {
+        $this->email->removeElement($email);
+    }
+
+    /**
+     * Get email
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
 }

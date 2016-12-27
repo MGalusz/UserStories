@@ -96,4 +96,27 @@ private $person;
     {
         return $this->type;
     }
+
+    /**
+     * Set person
+     *
+     * @param \UseStoriesBundle\Entity\Person $person
+     * @return Email
+     */
+    public function setPerson(\UseStoriesBundle\Entity\Person $person = null)
+    {
+        $this->person = $person;
+
+        return $this;
+    }
+
+    /**
+     * Get person
+     *
+     * @return \UseStoriesBundle\Entity\Person 
+     */
+    public function getPerson()
+    {
+        return $this->person;
+    }
 }
